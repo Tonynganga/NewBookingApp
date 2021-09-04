@@ -24,8 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
     TextInputLayout inputemailRegister, inputpasswordRegister, inputNameRegister, inputPhoneRegister;
     private Button btnRegister, gotoLogin;
-    FirebaseAuth mAuth;
-    FirebaseUser mUser;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
     DatabaseReference mRegisterUser;
     ProgressDialog mLoadingBar;
 
@@ -43,10 +43,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.btnRegister);
         gotoLogin = findViewById(R.id.gotoLogin);
 
-        mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
+
         mRegisterUser = FirebaseDatabase.getInstance().getReference();
         mLoadingBar = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         gotoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,12 +85,14 @@ public class RegisterActivity extends AppCompatActivity {
             mLoadingBar.setMessage("Please wait while your credentials get verified");
             mLoadingBar.setCanceledOnTouchOutside(false);
             mLoadingBar.show();
+
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+
                         UserModel newUser = new UserModel(name, phone, email);
-                        mRegisterUser.setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        mRegisterUser.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
@@ -104,11 +107,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 }
 
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RegisterActivity.this, "Something Went Wrong!Try Again", Toast.LENGTH_SHORT).show();
                             }
                         });
 
