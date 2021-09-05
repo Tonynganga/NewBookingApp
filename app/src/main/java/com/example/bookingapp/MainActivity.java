@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FirebaseAuth mAuth;
     FirebaseUser mUser;
 
+    EditText sourcelocation, destinationlocation;
+    Button confirmlocation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Booking App");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -44,6 +50,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View view = navigationView.inflateHeaderView(R.layout.drawer_header);
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        sourcelocation = findViewById(R.id.edt_from);
+        destinationlocation = findViewById(R.id.edt_to);
+        confirmlocation = findViewById(R.id.btn_confirmlocation);
+
+        confirmlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String source = sourcelocation.getText().toString();
+                String destination = destinationlocation.getText().toString();
+
+                Intent intent = new Intent(getApplicationContext(), DisplayLocationsActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("source", source);
+                extras.putString("destination", destination);
+                intent.putExtras(extras);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
