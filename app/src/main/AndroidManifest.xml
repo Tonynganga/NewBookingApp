@@ -28,8 +28,6 @@
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
 
         <uses-library
             android:name="com.google.android.maps"
