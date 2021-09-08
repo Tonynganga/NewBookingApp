@@ -13,6 +13,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="cynan">#E0F7FA</color>
     <color name="colorWhite">#FFFFFF</color>
-
+    <color name="lightGray">#F2F2F2</color>
     <color name="background">#E0E0E0</color>
 </resources>
