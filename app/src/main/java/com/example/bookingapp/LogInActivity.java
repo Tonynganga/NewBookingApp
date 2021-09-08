@@ -85,7 +85,7 @@ public class LogInActivity extends AppCompatActivity implements FirebaseAuth.Aut
                     if (task.isSuccessful()){
                         mLoadingBar.dismiss();
                         Toast.makeText(LogInActivity.this, "Login is successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), DisplayLocationsActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         finish();
@@ -124,7 +124,7 @@ public class LogInActivity extends AppCompatActivity implements FirebaseAuth.Aut
             if(check)
                 LogIn();
         }else{
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), DisplayLocationsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();

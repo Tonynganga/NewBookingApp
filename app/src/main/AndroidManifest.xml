@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingApp"
         tools:ignore="AllowBackup">
-        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".BookingActivity"></activity>
+        <activity android:name=".AboutUsActivity" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SplashActivity">
@@ -28,8 +29,6 @@
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
 
         <uses-library
             android:name="com.google.android.maps"
@@ -44,8 +43,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-
     </application>
 
 </manifest>
