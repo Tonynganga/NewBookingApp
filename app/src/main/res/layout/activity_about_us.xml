@@ -1,14 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".AboutUsActivity">
 
 
     <include
         android:id="@+id/app_bar"
         layout="@layout/main_appbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            app:cardCornerRadius="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="READY EXPRESS"
+                android:textStyle="bold"
+                android:fontFamily="@font/almendra_sc"
+                android:textSize="50dp"
+                android:textColor="#1B3947"
+                android:padding="20dp"
+                >
+        </TextView>
+
+        </androidx.cardview.widget.CardView>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:textSize="16dp"
+    android:fontFamily="sans-serif"
+    android:textColor="@color/black"
+    android:text="Ready Express is a top public transportation provider that includes a map integration that confirms your position and displays the distance to your destination. We provide long-distance travel that is both elegant and economical.">
+</TextView>
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:src="@drawable/coach"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:text="Our goal is to offer bus transportation, with a contemporary fleet, to millions of domestic passengers, ensuring a safe, pleasant, and economical travel experience. We provide regularly scheduled passenger transportation, as well as a number of unique services for our clients. "/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+           android:src="@drawable/happypassenger"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:text= " For us, safety is paramount: Our contemporary fleet of buses is handled by highly trained transportation experts and skilled drivers and satisfies the highest safety requirements. We will always ensure that you reach at your destination securely and on time with ready express.
+"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/bus"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:text=" We will always ensure that you reach at your destination securely and on time with ready express. "/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/passenger"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:padding="5dp"
+            android:textSize="16dp"
+            android:text="Thank you for visiting our website and we look forward to handling your travel needs in near future."/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
