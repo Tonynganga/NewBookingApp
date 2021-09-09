@@ -61,7 +61,7 @@ public class LogInActivity extends AppCompatActivity implements FirebaseAuth.Aut
             public void onClick(View v) {
                 check=true;
                 onAuthStateChanged(mAuth);
-            };
+            }
 
         });
     }

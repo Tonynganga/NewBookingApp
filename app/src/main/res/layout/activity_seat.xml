@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".seat">
+    tools:context=".SeatActivity">
 
     <GridLayout
         android:id="@+id/mainGrid"
@@ -889,7 +889,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingtop="25dp"
         android:paddingBottom="15dp">
 
         <TextView

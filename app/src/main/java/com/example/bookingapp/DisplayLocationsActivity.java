@@ -147,6 +147,16 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
             @Override
             public void onClick(View v) {
 
+                String Slocation = mSearchText.getText().toString();
+                String Dlocation = mSearchText2.getText().toString();
+
+                Intent intent = new Intent(getApplicationContext(), SearchBusActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("Ssource", Slocation);
+                extras.putString("Sdestination", Dlocation);
+                intent.putExtras(extras);
+                startActivity(intent);
+
             }
         });
 
@@ -172,6 +182,9 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
                 Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.admin:
+                startActivity(new Intent(getApplicationContext(), AdminLoginActivity.class));
                 break;
         }
         return true;

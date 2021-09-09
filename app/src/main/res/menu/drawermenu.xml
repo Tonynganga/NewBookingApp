@@ -6,4 +6,5 @@
     <item android:id="@+id/about" android:title="About Us" android:icon="@drawable/activity"/>
     <item android:id="@+id/rate" android:title="Rate Us" android:icon="@drawable/rating"/>
     <item android:id="@+id/logout" android:title="Logout" android:icon="@drawable/logout"/>
+    <item android:id="@+id/admin" android:title="Admin" android:icon="@drawable/ic_admin"/>
 </menu>

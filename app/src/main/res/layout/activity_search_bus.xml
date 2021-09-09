@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchBusActivity">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/main_appbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="7dp"
+            android:src="@drawable/icone2" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="7dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="7dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="7dp"
+            android:background="@android:drawable/btn_default"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:hint="SET DATE"
+            android:shadowColor="#090909"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/angry_btn"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back2"
+            android:baselineAligned="false"
+            android:shadowColor="#14A81E"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="3"
+            android:text="Search Buses"
+            android:textAlignment="center"
+            android:textColor="#041E21"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
