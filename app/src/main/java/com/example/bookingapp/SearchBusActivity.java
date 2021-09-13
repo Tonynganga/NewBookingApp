@@ -49,6 +49,12 @@ public class SearchBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_bus);
 
+
+
+//        String password_string = extras.getString("EXTRA_PASSWORD");
+//        Toast.makeText(this, ""+distance, Toast.LENGTH_SHORT).show();
+
+
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
         tvDate = (TextView) findViewById(R.id.tvDate);
@@ -56,7 +62,7 @@ public class SearchBusActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("BookingDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseReference = FirebaseDatabase.getInstance().getReference().child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
@@ -69,13 +75,15 @@ public class SearchBusActivity extends AppCompatActivity {
 
         //From
         Spinner dropdown1 = findViewById(R.id.spinner1);
-        String[] items1 = new String[]{"FROM", "Jaffna", "Vavuniya", "Mannar", "Colombo", "Kandy", "Batticola", "Ampara"};
+        String[] items1 = new String[]{"FROM", "Mombasa", "Mariakani", "Mazerus", "Voi", "Mtito Wa Ndei", "Kibwezi", "Emali"
+                , "AthiRiver", "Nairobi", "Mahimahiu", "Narok", "Bomet", "Sotit", "Sondu", "Ahero", "Kisumu"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items1);
         dropdown1.setAdapter(adapter1);
 
         //To
         Spinner dropdown2 = findViewById(R.id.spinner2);
-        String[] items2 = new String[]{"TO", "Jaffna", "Vavuniya", "Mannar", "Colombo", "Kandy", "Batticola", "Ampara"};
+        String[] items2 = new String[]{"TO", "Mombasa", "Mariakani", "Mazerus", "Voi", "Mtito Wa Ndei", "Kibwezi", "Emali"
+                , "AthiRiver", "Nairobi", "Mahimahiu", "Narok", "Bomet", "Sotit", "Sondu", "Ahero", "Kisumu"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items2);
         dropdown2.setAdapter(adapter2);
 
@@ -141,14 +149,18 @@ public class SearchBusActivity extends AppCompatActivity {
         progressDialog.setMessage("Searching Buses Please Wait...");
         progressDialog.show();
         BookingDetail bookingDetail = new BookingDetail(from, to, date);
-        databaseReference.push().setValue(bookingDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("BookingDetails").push().setValue(bookingDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
+                    Intent intent1 = getIntent();
+                    Bundle extras = intent1.getExtras();
+                    String distance = extras.getString("Sdistance");
                     Intent intent=new Intent(SearchBusActivity.this,BusActivity.class);
                     intent.putExtra("FROM_BUS",from);
                     intent.putExtra("TO_BUS",to);
                     intent.putExtra("DATE_BUS",date);
+                    intent.putExtra("SDistance", distance);
                     startActivity(intent);
                     progressDialog.dismiss();
 

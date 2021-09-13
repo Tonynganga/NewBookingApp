@@ -42,14 +42,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -90,6 +88,7 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
+    int kilometer;
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -154,6 +153,7 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
                 Bundle extras = new Bundle();
                 extras.putString("Ssource", Slocation);
                 extras.putString("Sdestination", Dlocation);
+                extras.putString("Sdistance", String.valueOf(kilometer));
                 intent.putExtras(extras);
                 startActivity(intent);
 
@@ -172,7 +172,7 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
                 startActivity(new Intent(DisplayLocationsActivity.this, ProfileActivity.class));
                 break;
             case R.id.history:
-                startActivity(new Intent(DisplayLocationsActivity.this, HistoryActivity.class));
+                startActivity(new Intent(DisplayLocationsActivity.this, DetailActivity.class));
                 break;
             case R.id.about:
                 startActivity(new Intent(DisplayLocationsActivity.this, AboutUsActivity.class));
@@ -245,8 +245,10 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
                         Location.distanceBetween(startLatitude, startLongitude, endLatitude, endLongitude, distanceresults);
                         float distance = distanceresults[0];
 
-                        int kilometre = (int) (distance / 1000);
-                        tvdistance.setText(kilometre + " km");
+
+
+                        kilometer = (int) (distance / 1000);
+                        tvdistance.setText(kilometer + " km");
 
                         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                         Date date = new Date();

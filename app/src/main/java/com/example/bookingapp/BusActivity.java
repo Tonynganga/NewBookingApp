@@ -45,6 +45,8 @@ public class BusActivity extends AppCompatActivity implements ItemClickListener{
         getSupportActionBar().setTitle("Searching Buses");
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
+
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -131,8 +133,11 @@ public class BusActivity extends AppCompatActivity implements ItemClickListener{
 
     @Override
     public void onClick(View view, int position) {
-        Bus bus = busList.get(position);
+        Intent intent1 = getIntent();
+        Bundle extras = intent1.getExtras();
+        String distance = extras.getString("SDistance");
 
+        Bus bus = busList.get(position);
         String busId=bus.getBusId();
         String travelsName=bus.getTravelsName();
         String busNumber=bus.getBusNumber();
@@ -143,13 +148,14 @@ public class BusActivity extends AppCompatActivity implements ItemClickListener{
 
         Bus busDetail=new Bus(busId,travelsName,busNumber,date,from,to,busCondition);
         FirebaseUser user1=firebaseAuth.getCurrentUser();
-        databaseReference.child(user1.getUid()).child("BusBookingDetails").setValue(busDetail);
+        databaseReference.child(user1.getUid()).child("BusBookingDetails").push().setValue(busDetail);
 
         Toast.makeText(getApplicationContext(),""+travelsName,Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(BusActivity.this,SeatActivity.class);
         intent.putExtra("NAME_BUS",travelsName);
         intent.putExtra("DATE_BUS",date);
         intent.putExtra("CONDITION_BUS",busCondition);
+        intent.putExtra("SDistance", distance);
         startActivity(intent);
 
 

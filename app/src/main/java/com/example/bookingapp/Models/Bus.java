@@ -1,80 +1,80 @@
 package com.example.bookingapp.Models;
 
 public class Bus {
-    public String busId;
-    public String travelsName;
-    public String busNumber;
-    public String date;
-    public String from;
-    public String to;
-    public String busCondition;
+        String busId;
+        public String travelsName;
+        public String busNumber;
+        public String date;
+        public String from;
+        public String to;
+        public String busCondition;
 
-    public Bus() {
-    }
+        public Bus() {
+        }
 
-    public Bus(String busId, String travelsName, String busNumber, String date, String from, String to, String busCondition) {
-        this.busId = busId;
-        this.travelsName = travelsName;
-        this.busNumber = busNumber;
-        this.date = date;
-        this.from = from;
-        this.to = to;
-        this.busCondition = busCondition;
-    }
+        public Bus(String busId,String travelsName, String busNumber, String date, String from, String to, String busCondition) {
+            this.busId = busId;
+            this.travelsName = travelsName;
+            this.busNumber = busNumber;
+            this.date = date;
+            this.from = from;
+            this.to = to;
+            this.busCondition = busCondition;
+        }
 
-    public String getBusId() {
-        return busId;
-    }
+        public String getTravelsName() {
+            return travelsName;
+        }
 
-    public void setBusId(String busId) {
-        this.busId = busId;
-    }
+        public void setTravelsName(String travelsName) {
+            this.travelsName = travelsName;
+        }
 
-    public String getTravelsName() {
-        return travelsName;
-    }
+        public String getBusNumber() {
+            return busNumber;
+        }
 
-    public void setTravelsName(String travelsName) {
-        this.travelsName = travelsName;
-    }
+        public void setBusNumber(String busNumber) {
+            this.busNumber = busNumber;
+        }
 
-    public String getBusNumber() {
-        return busNumber;
-    }
+        public String getDate() {
+            return date;
+        }
 
-    public void setBusNumber(String busNumber) {
-        this.busNumber = busNumber;
-    }
+        public void setDate(String date) {
+            this.date = date;
+        }
 
-    public String getDate() {
-        return date;
-    }
+        public String getFrom() {
+            return from;
+        }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+        public void setFrom(String from) {
+            this.from = from;
+        }
 
-    public String getFrom() {
-        return from;
-    }
+        public String getTo() {
+            return to;
+        }
 
-    public void setFrom(String from) {
-        this.from = from;
-    }
+        public void setTo(String to) {
+            this.to = to;
+        }
 
-    public String getTo() {
-        return to;
-    }
+        public String getBusCondition() {
+            return busCondition;
+        }
 
-    public void setTo(String to) {
-        this.to = to;
-    }
+        public void setBusCondition(String busCondition) {
+            this.busCondition = busCondition;
+        }
 
-    public String getBusCondition() {
-        return busCondition;
-    }
+        public String getBusId() {
+            return busId;
+        }
 
-    public void setBusCondition(String busCondition) {
-        this.busCondition = busCondition;
-    }
+        public void setBusId(String busId) {
+            this.busId = busId;
+        }
 }
