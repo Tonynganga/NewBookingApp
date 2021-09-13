@@ -196,7 +196,7 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     Intent intent=new Intent(PaybleActivity.this,FinishActivity.class);
-                    intent.putExtra("TOTALCOSTI",amount);
+                    intent.putExtra("TOTALCOST",total);
                     intent.putExtra("TOTALSEAT",seats);
                     intent.putExtra("DISTANCE",distance);
                     intent.putExtra("NAME_BUS",nameBus);
