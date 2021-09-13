@@ -4,7 +4,8 @@
     package="com.example.bookingapp">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -17,15 +18,13 @@
         android:theme="@style/Theme.BookingApp"
         tools:ignore="AllowBackup"
         tools:replace="android:icon">
-        <activity android:name=".NotificationActivity"></activity>
-        <activity android:name=".FinishActivity" />
-        <activity android:name=".PaybleActivity" >
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".FinishActivity" >
 
         </activity>
+        <activity android:name=".PaybleActivity"></activity>
         <activity android:name=".SearchBusActivity" />
-        <activity android:name=".AdminActivity" >
-
-        </activity>
+        <activity android:name=".AdminActivity"></activity>
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".BusActivity" />
         <activity android:name=".BookingActivity" />
@@ -39,7 +38,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".DisplayLocationsActivity" />
         <activity android:name=".ForgotPasswordActivity" />
