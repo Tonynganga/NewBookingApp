@@ -6,7 +6,7 @@
     android:layout_width="wrap_content" android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="@drawable/destopsuva"
+        android:background="@color/white"
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -537,12 +537,12 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="17"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1454,13 +1454,14 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="6dp"
-            android:background="@drawable/background"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
             android:ems="10"
             android:fontFamily="serif"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:text="CONFORM" />
+            android:text="CONFIRM" />
 
     </LinearLayout>
 

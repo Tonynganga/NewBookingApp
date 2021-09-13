@@ -25,7 +25,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/destop"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <TextView
@@ -89,7 +89,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/i"
+                android:background="@color/colorPrimary"
                 android:text="Home "
                 android:textSize="18sp" />
 
@@ -100,7 +100,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/i"
+                android:background="@color/colorPrimary"
                 android:text="Print Receipt"
                 android:textSize="18sp" />
 
