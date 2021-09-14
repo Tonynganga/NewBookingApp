@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +27,7 @@ public class DetailActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     Toolbar toolbar;
+    private Button cancelBooking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("History");
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+        cancelBooking=(Button)findViewById(R.id.cancelBooking);
 
         a=(TextView)findViewById(R.id.busDetailName1);
         b=(TextView)findViewById(R.id.busDetailDate1);
@@ -102,6 +108,18 @@ public class DetailActivity extends AppCompatActivity {
                     h.setText(" Number of Seats    :  "+ticketDetailNumber);
                     i.setText(" Total Cost                :  "+ticketDetailPrice);
                 }
+
+            }
+        });
+
+        cancelBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseUser user1 = firebaseAuth.getCurrentUser();
+                DatabaseReference databaseReferenceA= FirebaseDatabase.getInstance().getReference().child(user1.getUid());
+                databaseReferenceA.removeValue();
+
+                startActivity(new Intent(getApplicationContext(),DisplayLocationsActivity.class));
 
             }
         });

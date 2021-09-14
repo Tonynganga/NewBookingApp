@@ -42,6 +42,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -50,6 +56,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DisplayLocationsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -90,6 +98,13 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
     FirebaseUser mUser;
     int kilometer;
 
+
+    CircleImageView profileImageViewHeader;
+    TextView profileUsernameHeader;
+
+    String profileImageUrlV, usernameV;
+    DatabaseReference mUserRef;
+
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         Log.d(TAG, "onMapReady: map is ready");
@@ -122,6 +137,8 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
+
+
         toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Booking App");
@@ -131,7 +148,11 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navView);
 
+        mUserRef = FirebaseDatabase.getInstance().getReference().child("UserProfiles");
+
         View view = navigationView.inflateHeaderView(R.layout.drawer_header);
+        profileImageViewHeader = view.findViewById(R.id.header_profileimage);
+        profileUsernameHeader = view.findViewById(R.id.username_header);
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -160,6 +181,36 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
             }
         });
 
+    }
+    protected void onStart() {
+        super.onStart();
+        if (mUser == null){
+            sendUserToLogin();
+        }else {
+            mUserRef.child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()){
+                        profileImageUrlV = snapshot.child("profileimage").getValue().toString();
+                        usernameV = snapshot.child("profilename").getValue().toString();
+                        Picasso.get().load(profileImageUrlV).into(profileImageViewHeader);
+                        profileUsernameHeader.setText(usernameV);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(DisplayLocationsActivity.this, "Sorry!! Something went wrong", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+    }
+
+    private void sendUserToLogin() {
+        Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.bookingapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -16,13 +17,16 @@ import android.widget.Toast;
 import com.example.bookingapp.Models.SeatDetails;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SeatActivity extends AppCompatActivity {
 
     GridLayout mainGrid;
-    int seatPrice = 1;
+    int seatPrice;
     int totatCost = 0;
     int totalSeats = 0;
     TextView totalPrice;
@@ -32,6 +36,7 @@ public class SeatActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
+    DatabaseReference mPriceRef;
     int finalDistance;
 
     @Override
@@ -46,6 +51,18 @@ public class SeatActivity extends AppCompatActivity {
 
         firebaseAuth= FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        mPriceRef = FirebaseDatabase.getInstance().getReference().child("Prices");
+        mPriceRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                seatPrice = Integer.parseInt(snapshot.child("price").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
         totalBookedSeats = (TextView) findViewById(R.id.total_seats);
