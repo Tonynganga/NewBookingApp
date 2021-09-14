@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookingapp.Models.Bus;
+import com.example.bookingapp.Models.Price;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -45,10 +46,14 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDatesetListener;
 
+    EditText edt_add_price;
+    Button btnadd_price;
+    DatabaseReference priceRef;
+
     private static final int REQUEST_CODE = 100;
-    private MaterialCardView addBus, addAdmin, logout;
-    AlertDialog.Builder dialogBuilder;
-    AlertDialog dialog, admindialog;
+    MaterialCardView addBus, addAdmin, logout, addprice;
+    AlertDialog.Builder dialogBuilder, pricedialogBuilder;
+    AlertDialog dialog, admindialog, pricedialog;
 
     private Uri imageUri;
     
@@ -79,7 +84,9 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
         addBus = findViewById(R.id.addMember);
         addAdmin = findViewById(R.id.addAdministrator);
+        addprice = findViewById(R.id.addprice);
         mBusRef = FirebaseDatabase.getInstance().getReference();
+        priceRef = FirebaseDatabase.getInstance().getReference().child("Prices");
 
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -105,10 +112,46 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                 CreateAdminDialog();
             }
         });
+        addprice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              CreatePriceDialog();
+            }
+        });
+    }
 
+    private void CreatePriceDialog() {
+        pricedialogBuilder = new AlertDialog.Builder(this);
+        View priceView = getLayoutInflater().inflate(R.layout.add_price, null);
+        edt_add_price = priceView.findViewById(R.id.edt_busprice);
+        btnadd_price = priceView.findViewById(R.id.btnaddprice);
+        pricedialogBuilder.setView(priceView);
+        pricedialog = pricedialogBuilder.create();
+        pricedialog.show();
 
+        btnadd_price.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String price = edt_add_price.getText().toString();
 
+                Price newPrice = new Price(price);
+                priceRef.setValue(newPrice).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(AdminActivity.this, "Price Saved Successfully", Toast.LENGTH_SHORT).show();
+                        edt_add_price.setText("");
 
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AdminActivity.this, "Something Went wrong!Try Again", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+            }
+        });
     }
 
     private void CreateAdminDialog() {

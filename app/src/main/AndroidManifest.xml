@@ -20,11 +20,14 @@
         tools:replace="android:icon">
         <activity android:name=".NotificationActivity" />
         <activity android:name=".FinishActivity" >
-
         </activity>
         <activity android:name=".PaybleActivity"></activity>
-        <activity android:name=".SearchBusActivity" />
-        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".SearchBusActivity" >
+        </activity>
+        <activity android:name=".AdminActivity">
+
+
+        </activity>
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".BusActivity" />
         <activity android:name=".BookingActivity" />
@@ -38,6 +41,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".DisplayLocationsActivity" />
         <activity android:name=".ForgotPasswordActivity" />

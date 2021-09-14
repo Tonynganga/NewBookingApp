@@ -24,9 +24,19 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="120dp"
             android:layout_margin="7dp"
-            android:src="@drawable/bus" />
+
+            android:src="@drawable/icone2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FROM"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="7dp"/>
+
 
         <Spinner
             android:id="@+id/spinner1"
@@ -38,6 +48,15 @@
             android:gravity="center"
             android:spinnerMode="dropdown"
             android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TO"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="7dp"/>
 
         <Spinner
             android:id="@+id/spinner2"

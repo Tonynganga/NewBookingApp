@@ -49,6 +49,12 @@ public class SearchBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_bus);
 
+        Intent intent1 = getIntent();
+        Bundle extras = intent1.getExtras();
+        String Ssource = extras.getString("Ssource");
+        String Sdestination = extras.getString("Sdestination");
+//        String distance = extras.getString("Sdistance");
+
 
 
 //        String password_string = extras.getString("EXTRA_PASSWORD");
@@ -57,6 +63,7 @@ public class SearchBusActivity extends AppCompatActivity {
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
+
         tvDate = (TextView) findViewById(R.id.tvDate);
         angry_btn = (Button) findViewById(R.id.angry_btn);
 
@@ -75,14 +82,14 @@ public class SearchBusActivity extends AppCompatActivity {
 
         //From
         Spinner dropdown1 = findViewById(R.id.spinner1);
-        String[] items1 = new String[]{"FROM", "Mombasa", "Mariakani", "Mazerus", "Voi", "Mtito Wa Ndei", "Kibwezi", "Emali"
+        String[] items1 = new String[]{Ssource, "Mombasa", "Mariakani", "Mazerus", "Voi", "Mtito Wa Ndei", "Kibwezi", "Emali"
                 , "AthiRiver", "Nairobi", "Mahimahiu", "Narok", "Bomet", "Sotit", "Sondu", "Ahero", "Kisumu"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items1);
         dropdown1.setAdapter(adapter1);
 
         //To
         Spinner dropdown2 = findViewById(R.id.spinner2);
-        String[] items2 = new String[]{"TO", "Mombasa", "Mariakani", "Mazerus", "Voi", "Mtito Wa Ndei", "Kibwezi", "Emali"
+        String[] items2 = new String[]{Sdestination, "Mombasa", "Mariakani", "Mazerus", "Voi", "Mtito Wa Ndei", "Kibwezi", "Emali"
                 , "AthiRiver", "Nairobi", "Mahimahiu", "Narok", "Bomet", "Sotit", "Sondu", "Ahero", "Kisumu"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items2);
         dropdown2.setAdapter(adapter2);
@@ -101,6 +108,7 @@ public class SearchBusActivity extends AppCompatActivity {
                         , mDatesetListener
                         , year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 dialog.show();
             }
         });
