@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_margin="7dp"
+
             android:src="@drawable/icone2" />
         <TextView
             android:layout_width="wrap_content"
@@ -35,6 +36,7 @@
             android:textColor="@color/black"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="7dp"/>
+
 
         <Spinner
             android:id="@+id/spinner1"
@@ -85,19 +87,19 @@
 
         <Button
             android:id="@+id/angry_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/back2"
+            android:background="@color/colorPrimary"
             android:baselineAligned="false"
-            android:shadowColor="#14A81E"
+            android:shadowColor="#2196F3"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="3"
             android:text="Search Buses"
             android:textAlignment="center"
-            android:textColor="#041E21"
+            android:textColor="@color/white"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

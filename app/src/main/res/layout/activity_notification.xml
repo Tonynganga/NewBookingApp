@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/destop"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <TextView
@@ -28,10 +28,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/white"
-                android:text="Shana Travels"
+                android:text="Mombasa Raha"
                 android:textAlignment="center"
                 android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"/>
 
             <TextView
                 android:id="@+id/textView222"
@@ -42,7 +43,9 @@
                 android:background="@color/white"
                 android:text="Jaffna"
                 android:textAlignment="center"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textView333"
@@ -59,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_margin="40dp"
-                android:src="@drawable/sutha" />
+                android:src="@drawable/coach" />
 
             <TextView
                 android:id="@+id/text_View"
@@ -67,10 +70,10 @@
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/white"
+                android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:text="Successfully Booked "
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorWhite"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

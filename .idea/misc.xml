@@ -4,15 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_about_us.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_admin.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_admin_login.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_booking.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_bus.xml" value="0.13240740740740742" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_cancel_ticket.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_confirm_ticket.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_display_locations.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_finish.xml" value="0.13240740740740742" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_forgot_password.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_history.xml" value="0.13240740740740742" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_log_in.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_notification.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_payble.xml" value="0.25" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_profile.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_register.xml" value="0.13240740740740742" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_search_bus.xml" value="0.22" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_seat.xml" value="0.22" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/activity_splash.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/add_bus.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/add_profile.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/drawer_header.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/layout/main_appbar.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/HP/Desktop/My projects/Booking_App/app/src/main/res/menu/drawermenu.xml" value="0.1" />
       </map>
     </option>

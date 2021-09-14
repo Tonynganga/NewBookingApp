@@ -22,7 +22,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/destop"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/app_bar">
@@ -45,10 +45,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/priya"
-                    android:text="Shana Travels"
+                    android:background="@color/colorWhite"
+                    android:text="Mombasa Raha"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="25dp"
                     android:textStyle="bold" />
 
@@ -100,11 +100,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/priya"
+                    android:background="@color/colorWhite"
                     android:gravity="center"
                     android:text="Booking Detail"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -135,11 +135,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/priya"
+                    android:background="@color/colorWhite"
                     android:gravity="center"
                     android:text="Ticket Detail"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -170,11 +170,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
-                    android:background="@color/priya"
+                    android:background="@color/colorWhite"
                     android:gravity="center"
                     android:text="Customer Detail"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 

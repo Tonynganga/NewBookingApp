@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/destop"
+        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -32,6 +32,7 @@
             android:layout_margin="5dp"
             android:ems="10"
             android:hint="Travels Name"
+            android:textColorHint="@color/black"
             android:inputType="textPersonName" />
 
         <EditText
@@ -41,6 +42,7 @@
             android:layout_margin="5dp"
             android:ems="10"
             android:hint="Bus Number"
+            android:textColorHint="@color/black"
             android:inputType="number" />
 
         <EditText
@@ -51,7 +53,8 @@
             android:ems="10"
             android:hint="Journey Date"
             android:inputType="date"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColorHint="@color/black"/>
         <!--<TextView-->
         <!--android:id="@+id/tvDate"-->
         <!--android:layout_width="match_parent"-->
@@ -93,7 +96,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="5dp"
-            android:background="@color/i"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
             android:padding="10dp"
             android:text="Add Bus" />
 
