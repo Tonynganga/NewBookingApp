@@ -43,27 +43,29 @@
             android:ems="10"
             android:hint="Bus Number"
             android:textColorHint="@color/black"
-            android:inputType="number" />
+            android:inputType="text" />
 
-        <EditText
+        <TextView
             android:id="@+id/journeyDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_margin="5dp"
             android:ems="10"
             android:hint="Journey Date"
             android:inputType="date"
             android:textSize="18sp"
             android:textColorHint="@color/black"/>
-        <!--<TextView-->
-        <!--android:id="@+id/tvDate"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="60dp"-->
-        <!--android:layout_margin="7dp"-->
-        <!--android:fontFamily="serif"-->
-        <!--android:background="@android:drawable/btn_default"-->
-        <!--android:gravity="center"-->
-        <!--android:hint="SET DATE" />-->
+        <TextView
+            android:id="@+id/journeyTime"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:ems="10"
+            android:hint="Journey Time"
+            android:inputType="date"
+            android:textSize="18sp"
+            android:textColorHint="@color/black"/>
+
         <Spinner
             android:id="@+id/busFrom"
             android:layout_width="match_parent"

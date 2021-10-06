@@ -1,6 +1,7 @@
 package com.example.bookingapp.Models;
 
-public class Price {
+public class
+Price {
     String price;
 
     public Price() {

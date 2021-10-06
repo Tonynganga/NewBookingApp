@@ -138,9 +138,8 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
         mUser = mAuth.getCurrentUser();
 
 
-
-        toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
+        Toolbar mToolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Booking App");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
@@ -222,6 +221,7 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
             case R.id.profile:
                 startActivity(new Intent(DisplayLocationsActivity.this, ProfileActivity.class));
                 break;
+            case R.id.cancel_ticket:
             case R.id.history:
                 startActivity(new Intent(DisplayLocationsActivity.this, DetailActivity.class));
                 break;
@@ -234,9 +234,7 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
                 startActivity(intent);
                 finish();
                 break;
-            case R.id.admin:
-                startActivity(new Intent(getApplicationContext(), AdminLoginActivity.class));
-                break;
+
         }
         return true;
     }

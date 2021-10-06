@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/profile" android:title="My Profile" android:icon="@drawable/profile"/>
-    <item android:id="@+id/dashboard" android:title="Cancel Ticket" android:icon="@drawable/dashboarc"/>
+    <item android:id="@+id/cancel_ticket" android:title="Cancel Ticket" android:icon="@drawable/dashboarc"/>
     <item android:id="@+id/history" android:title="Ticket Detail" android:icon="@drawable/history"/>
     <item android:id="@+id/about" android:title="About Us" android:icon="@drawable/activity"/>
-    <item android:id="@+id/rate" android:title="Rate Us" android:icon="@drawable/rating"/>
     <item android:id="@+id/logout" android:title="Logout" android:icon="@drawable/logout"/>
-    <item android:id="@+id/admin" android:title="Admin" android:icon="@drawable/ic_admin"/>
+  
 </menu>

@@ -58,19 +58,21 @@ public class FinishActivity extends AppCompatActivity {
 
     private Button buttonHome, buttonReceipt;
     private TextView a,b,c;
-    private DatabaseReference databaseReference;
+    DatabaseReference databaseReference, databaseReferencetwo;
     private FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     Toolbar toolbar;
     String total, seats, distance, nameBus, dateBus, conditionBus;
+    String name, phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
-        toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Booking  Finished");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        toolbar = findViewById(R.id.app_bar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setTitle("Booking  Finished");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         a=(TextView)findViewById(R.id.textView11);
         b=(TextView)findViewById(R.id.textView21);
@@ -106,8 +108,9 @@ public class FinishActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReferencetwo= FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
 
-        databaseReference= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("BusBookingDetails");
+        databaseReference= FirebaseDatabase.getInstance().getReference().child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("BusBookingDetails");
         databaseReference.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -151,6 +154,18 @@ public class FinishActivity extends AppCompatActivity {
     }
 
     private void createPdfFile(String path) {
+        databaseReferencetwo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                name = snapshot.child("name").getValue().toString();
+                phone = snapshot.child("phone").getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         total=getIntent().getStringExtra("TOTALCOST");
         seats=getIntent().getStringExtra("TOTALSEAT");
@@ -214,6 +229,18 @@ public class FinishActivity extends AppCompatActivity {
             //add product order detail
             addLineSpace(document);
             addNewItem(document, "Receipt Detail.", Element.ALIGN_CENTER, titleFont);
+            addLineSeperator(document);
+
+
+            //add product order detail
+            addNewItem(document, "Name:"+name, Element.ALIGN_CENTER, subtitleFont);
+            addLineSeperator(document);
+            addLineSeperator(document);
+
+
+            //add product order detail
+            addLineSpace(document);
+            addNewItem(document, "Phone:"+phone, Element.ALIGN_CENTER, subtitleFont);
             addLineSeperator(document);
 
             //item 1

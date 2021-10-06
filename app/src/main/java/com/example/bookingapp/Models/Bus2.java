@@ -1,23 +1,19 @@
 package com.example.bookingapp.Models;
 
-public class Bus {
+public class Bus2 {
         String busId;
-        public String travelsName;
-        public String busNumber;
-        public String date;
-        public String time;
-        public String from;
-        public String to;
-        public String busCondition;
+        String travelsName;
+        String busNumber;
+        String date;
+        String from;
+        String to;
+        String busCondition;
 
-        public Bus(String busId, String travelsNameI, String busNumberI, String date, String from, String to, String busCondition) {
+        public Bus2() {
         }
 
-
-
-    public Bus(String busId, String travelsName, String busNumber,  String date,String time, String from, String to, String busCondition) {
+        public Bus2(String busId,String travelsName, String busNumber, String date, String from, String to, String busCondition) {
             this.busId = busId;
-            this.time = time;
             this.travelsName = travelsName;
             this.busNumber = busNumber;
             this.date = date;
@@ -26,15 +22,7 @@ public class Bus {
             this.busCondition = busCondition;
         }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getTravelsName() {
+        public String getTravelsName() {
             return travelsName;
         }
 
@@ -89,4 +77,6 @@ public class Bus {
         public void setBusId(String busId) {
             this.busId = busId;
         }
-}
+    }
+
+

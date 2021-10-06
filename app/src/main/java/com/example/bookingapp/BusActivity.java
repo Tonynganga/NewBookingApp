@@ -142,17 +142,19 @@ public class BusActivity extends AppCompatActivity implements ItemClickListener{
         String travelsName=bus.getTravelsName();
         String busNumber=bus.getBusNumber();
         String date=bus.getDate();
+        String time = bus.getTime();
         String from=bus.getFrom();
         String to=bus.getTo();
         String busCondition=bus.getBusCondition();
 
-        Bus busDetail=new Bus(busId,travelsName,busNumber,date,from,to,busCondition);
+        Bus busDetail=new Bus(busId,travelsName,busNumber,date,time,from,to,busCondition);
         FirebaseUser user1=firebaseAuth.getCurrentUser();
         databaseReference.child(user1.getUid()).child("BusBookingDetails").push().setValue(busDetail);
 
         Toast.makeText(getApplicationContext(),""+travelsName,Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(BusActivity.this,SeatActivity.class);
         intent.putExtra("NAME_BUS",travelsName);
+        intent.putExtra("BUS_ID",busId);
         intent.putExtra("DATE_BUS",date);
         intent.putExtra("CONDITION_BUS",busCondition);
         intent.putExtra("SDistance", distance);

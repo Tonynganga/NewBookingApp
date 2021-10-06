@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,6 +20,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.bookingapp.Models.Bus;
@@ -29,8 +31,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
@@ -39,16 +44,17 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText travelsName;
     private EditText busNumber;
-    private EditText dateBus;
+    TextView dateBus, timeBus;
     Spinner spinner1;
     Spinner spinner2;
     Spinner spinner3;
-    private TextView mDisplayDate;
+    TextView mDisplayDate, mDisplayTime;
     private DatePickerDialog.OnDateSetListener mDatesetListener;
 
     EditText edt_add_price;
     Button btnadd_price;
-    DatabaseReference priceRef;
+    TextView currentPrice;
+    DatabaseReference priceRef, priceRetrieve;
 
     private static final int REQUEST_CODE = 100;
     MaterialCardView addBus, addAdmin, logout, addprice;
@@ -87,6 +93,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         addprice = findViewById(R.id.addprice);
         mBusRef = FirebaseDatabase.getInstance().getReference();
         priceRef = FirebaseDatabase.getInstance().getReference().child("Prices");
+        priceRetrieve = FirebaseDatabase.getInstance().getReference().child("Prices");
 
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -125,9 +132,22 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         View priceView = getLayoutInflater().inflate(R.layout.add_price, null);
         edt_add_price = priceView.findViewById(R.id.edt_busprice);
         btnadd_price = priceView.findViewById(R.id.btnaddprice);
+        currentPrice = priceView.findViewById(R.id.current_price);
         pricedialogBuilder.setView(priceView);
         pricedialog = pricedialogBuilder.create();
         pricedialog.show();
+        priceRetrieve.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String CurrentPrice = snapshot.child("price").getValue().toString();
+                currentPrice.setText("Ksh " + CurrentPrice);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         btnadd_price.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,8 +158,13 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                 priceRef.setValue(newPrice).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(AdminActivity.this, "Price Saved Successfully", Toast.LENGTH_SHORT).show();
-                        edt_add_price.setText("");
+                        if (task.isSuccessful()) {
+                            Toast.makeText(AdminActivity.this, "Price Saved Successfully", Toast.LENGTH_SHORT).show();
+                            edt_add_price.setText("");
+
+                        }else {
+                            Toast.makeText(AdminActivity.this, "Failed!!Try Again.", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -184,6 +209,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         travelsName = busView.findViewById(R.id.travelsName);
         busNumber = busView.findViewById(R.id.busNumber);
         dateBus = busView.findViewById(R.id.journeyDate);
+        timeBus = busView.findViewById(R.id.journeyTime);
 //        spinner1 = busView.findViewById(R.id.busFrom);
 //        spinner2 = busView.findViewById(R.id.busTo);
 //        spinner3 = busView.findViewById(R.id.busCondition);
@@ -192,43 +218,63 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         dialog = dialogBuilder.create();
         dialog.show();
 
+        mDisplayTime = busView.findViewById(R.id.journeyTime);
+        mDisplayTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(AdminActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        mDisplayTime.setText( selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+            }
+        });
 
 
+
+        mDisplayDate = busView.findViewById(R.id.journeyDate);
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog2 = new DatePickerDialog(AdminActivity.this
+                        , android.R.style.Theme_Holo_Light_Dialog_MinWidth
+                        , mDatesetListener
+                        , year, month, day);
+                dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog2.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+                dialog2.show();
+            }
+        });
+        mDatesetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                Log.d(TAG, "OnDateSet:date :" + day + "/" + (month + 1) + "/" + year);
+                String date = day + "/" + (month + 1) + "/" + year;
+                // String status="Journey Date";
+                // mDisplayDate.setText(status+"\n"+date);
+                mDisplayDate.setText(date);
+            }
+        };
         busSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                mDisplayDate = busView.findViewById(R.id.journeyDate);
-                mDisplayDate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Calendar calendar = Calendar.getInstance();
-                        int year = calendar.get(Calendar.YEAR);
-                        int month = calendar.get(Calendar.MONTH);
-                        int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                        DatePickerDialog dialog = new DatePickerDialog(AdminActivity.this
-                                , android.R.style.Theme_Holo_Light_Dialog_MinWidth
-                                , mDatesetListener
-                                , year, month, day);
-                        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                        dialog.show();
-                    }
-                });
-                mDatesetListener = new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                Log.d(TAG, "OnDateSet:date :" + day + "/" + (month + 1) + "/" + year);
-                        String date = day + "-" + (month + 1) + "-" + year;
-                        // String status="Journey Date";
-                        // mDisplayDate.setText(status+"\n"+date);
-                        mDisplayDate.setText(date);
-                    }
-                };
-
                 String travelsNameI = travelsName.getText().toString().trim();
                 String busNumberI = busNumber.getText().toString().trim();
                 String date = dateBus.getText().toString().trim();
+                String time = timeBus.getText().toString().trim();
                 String from = spinner1.getSelectedItem().toString().trim();
                 String to = spinner2.getSelectedItem().toString().trim();
                 String busCondition = spinner3.getSelectedItem().toString().trim();
@@ -250,6 +296,11 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(getApplicationContext(), "Please Enter Journey Date", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (TextUtils.isEmpty(time)) {
+                    //password is empty
+                    Toast.makeText(getApplicationContext(), "Please Enter Journey Time", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (TextUtils.equals(from,"From")) {
                     //email is empty
@@ -269,7 +320,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                     LoadingBar.setMessage("Adding Buses Please Wait...");
                     LoadingBar.show();
 
-                    Bus bus = new Bus(busId, travelsNameI, busNumberI, date, from, to, busCondition);
+                    Bus bus = new Bus(busId, travelsNameI, busNumberI, time, date, from, to, busCondition);
 
 //                    FirebaseUser user = adminAuth.getCurrentUser();
                     mBusRef.child("BusDetails").child(busId).setValue(bus).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -277,7 +328,13 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
                                 Toast.makeText(AdminActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                travelsName.setText("");
+                                busNumber.setText("");
+                                dateBus.setText("");
+                                Intent intent=new Intent(getApplicationContext(),ViewBusActivity.class);
+                                startActivity(intent);
                                 LoadingBar.dismiss();
+
                             }else {
                                 Toast.makeText(AdminActivity.this, "error", Toast.LENGTH_SHORT).show();
                                 LoadingBar.dismiss();

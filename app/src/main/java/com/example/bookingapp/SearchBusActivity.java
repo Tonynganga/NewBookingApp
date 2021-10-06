@@ -75,8 +75,9 @@ public class SearchBusActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, LogInActivity.class));
         }
-        toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
+
+        Toolbar mToolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Searching Buses");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

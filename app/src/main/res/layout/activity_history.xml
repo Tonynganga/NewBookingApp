@@ -61,6 +61,15 @@
                     android:background="@color/white"
                     android:text="No Booking Data......"
                     android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/busDetailTime1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:text="No Booking Data......"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/busDetailFrom1"
@@ -145,6 +154,15 @@
 
                 <TextView
                     android:id="@+id/ticketDetailNumber1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:text="No Booking Data......"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/ticketDetailSeats1"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"

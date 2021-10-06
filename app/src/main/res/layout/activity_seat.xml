@@ -6,7 +6,7 @@
     android:layout_width="wrap_content" android:layout_height="match_parent">
 
     <LinearLayout
-        android:background="@color/white"
+        android:background="@drawable/destop"
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -29,13 +29,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat1"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -47,10 +49,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="1"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -60,13 +62,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat2"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -78,10 +82,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="2"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -91,13 +95,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -109,10 +115,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="3"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -121,13 +127,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -139,10 +147,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="4"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -151,13 +159,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat5"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -170,10 +180,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="5"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -182,13 +192,15 @@
 
             <!-- Column 6 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat6"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -200,10 +212,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="6"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -212,13 +224,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat7"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -230,10 +244,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="7"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -243,13 +257,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat8"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -261,10 +277,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="8"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -274,13 +290,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat9"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -292,10 +310,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="9"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -304,13 +322,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat10"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -322,10 +342,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="10"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -334,13 +354,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat11"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -353,10 +375,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="11"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
 
                     android:textStyle="bold" />
 
@@ -366,13 +388,15 @@
 
             <!-- Column 6 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat12"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -384,10 +408,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="12"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -396,13 +420,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat13"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -414,10 +440,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="13"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
 
                     android:textStyle="bold" />
 
@@ -428,13 +454,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat14"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -446,10 +474,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="14"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
 
                     android:textStyle="bold" />
 
@@ -460,13 +488,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat15"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -478,10 +508,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="15"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -490,13 +520,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat16"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -508,10 +540,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="16"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -520,13 +552,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat17"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -537,7 +571,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="17"
                     android:textAlignment="center"
@@ -551,13 +585,15 @@
 
             <!-- Column 6 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat18"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -569,10 +605,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="18"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -581,13 +617,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat19"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -599,10 +637,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="19"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -612,13 +650,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat20"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -630,10 +670,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="20"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -643,13 +683,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat21"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -661,10 +703,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="21"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -673,13 +715,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat22"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -691,10 +735,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="22"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -703,13 +747,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat23"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -722,10 +768,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="23"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -734,13 +780,15 @@
 
             <!-- Column 6 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat24"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -752,10 +800,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="24"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -764,13 +812,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat25"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -782,10 +832,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="25"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -795,13 +845,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat26"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -813,10 +865,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="26"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -826,13 +878,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat27"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -844,10 +898,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="27"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -856,13 +910,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat28"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -874,10 +930,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="28"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -886,13 +942,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat29"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -905,10 +963,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="29"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -917,13 +975,15 @@
 
             <!-- Column 6 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat30"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -935,10 +995,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="30"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -947,13 +1007,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat31"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -965,10 +1027,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="31"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -978,13 +1040,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat32"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -996,10 +1060,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="32"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1009,13 +1073,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat33"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1027,10 +1093,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="33"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1039,13 +1105,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat34"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1057,10 +1125,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="34"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1069,13 +1137,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat35"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1088,10 +1158,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="35"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1100,13 +1170,15 @@
 
             <!-- Column 6 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat36"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1118,10 +1190,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="36"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1130,13 +1202,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat37"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1148,10 +1222,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="37"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1161,13 +1235,15 @@
 
             <!-- Column 2 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat38"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1179,10 +1255,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="38"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1192,13 +1268,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat39"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1210,10 +1288,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="39"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1222,13 +1300,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat40"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1240,10 +1320,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="40"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1252,13 +1332,15 @@
 
             <!-- Column 1 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat41"
                 android:layout_width="0dp"
                 android:layout_height="20dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1271,10 +1353,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="41"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1282,13 +1364,16 @@
             <!-- Row 9 -->
 
             <!-- Column 2 -->
-            <androidx.cardview.widget.CardView            android:layout_width="0dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/seat42"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1300,10 +1385,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="42"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1312,13 +1397,15 @@
 
             <!-- Column 3 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat43"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1330,10 +1417,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="43"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1343,13 +1430,15 @@
 
             <!-- Column 4 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat44"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1361,10 +1450,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="44"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1374,13 +1463,15 @@
 
             <!-- Column 5 -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/seat45"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="5dp"
-                android:layout_rowWeight="1"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -1392,10 +1483,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="20sp"
                     android:text="45"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -1418,7 +1509,8 @@
                 android:id="@+id/total_seats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/total_seats_label"
+                android:layout_marginStart="5dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:text="0"
@@ -1443,8 +1535,9 @@
                 android:id="@+id/total_cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/total_cost_label"
                 android:text=""
+                android:layout_marginStart="5dp"
                 android:textColor="#3409F0"
                 android:textSize="20sp" />
         </RelativeLayout>

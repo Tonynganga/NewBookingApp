@@ -22,8 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private TextView a,b,c,d,e,f,g,h,i,j,k,l;
-    private DatabaseReference databaseReference1,databaseReference2,databaseReference3,databaseReference4;
+     TextView a,b,c,d,e,f,g,h,i,j,k,l,m,n;
+     DatabaseReference databaseReference1,databaseReference2,databaseReference3,databaseReference4,
+            databaseReference5;
     private FirebaseAuth firebaseAuth;
 
     Toolbar toolbar;
@@ -34,15 +35,16 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("History");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+//        toolbar = findViewById(R.id.app_bar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setTitle("History");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         cancelBooking=(Button)findViewById(R.id.cancelBooking);
 
         a=(TextView)findViewById(R.id.busDetailName1);
         b=(TextView)findViewById(R.id.busDetailDate1);
+        m = findViewById(R.id.busDetailTime1);
         c=(TextView)findViewById(R.id.busDetailFrom1);
         d=(TextView)findViewById(R.id.busDetailTo1);
         e=(TextView)findViewById(R.id.busDetailCondition1);
@@ -51,6 +53,7 @@ public class DetailActivity extends AppCompatActivity {
         g=(TextView)findViewById(R.id.bookingDetailTo1);
 
         h=(TextView)findViewById(R.id.ticketDetailNumber1);
+        n=(TextView)findViewById(R.id.ticketDetailSeats1);
         i=(TextView)findViewById(R.id.ticketDetailPrice1);
 
         j=(TextView)findViewById(R.id.customerDetailName1);
@@ -62,7 +65,18 @@ public class DetailActivity extends AppCompatActivity {
         databaseReference1= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("BusBookingDetails");
         databaseReference2= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("BookingDetails");
         databaseReference3= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("SeatDetails");
-        databaseReference4= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("CustomerDetails");
+        databaseReference5= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("SeatDetails").child("bookedSeats");
+        databaseReference4= FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+
+        databaseReference5.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                for (DataSnapshot snapshot: task.getResult().getChildren()){
+                    String seats = snapshot.getChildren().toString();
+                    n.setText(seats);
+                }
+            }
+        });
 
         databaseReference1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -71,12 +85,14 @@ public class DetailActivity extends AppCompatActivity {
 
                     String busDetailName=snapshot.child("travelsName").getValue().toString();
                     String busDetailDate=snapshot.child("date").getValue().toString();
+                    String busDetailTime=snapshot.child("time").getValue().toString();
                     String busDetailFrom=snapshot.child("from").getValue().toString();
                     String busDetailTo=snapshot.child("to").getValue().toString();
                     String busDetailCondition=snapshot.child("busCondition").getValue().toString();
 
                     a.setText(""+busDetailName);
                     b.setText(" Date              :  "+busDetailDate);
+                    m.setText(" Time              :  "+busDetailTime);
                     c.setText(" From             :  "+busDetailFrom);
                     d.setText(" To                  :  "+busDetailTo);
                     e.setText(" Condition     :  "+busDetailCondition);
@@ -123,25 +139,25 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
-//        databaseReference4.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                String customerDetailName=dataSnapshot.child("cus_name").getValue().toString();
-//                String customerDetailEmail1=dataSnapshot.child("cus_email").getValue().toString();
-//                String customerDetailPhone=dataSnapshot.child("cus_phone").getValue().toString();
-//
-//                j.setText(" Customer_Name      :  "+customerDetailName);
-//                k.setText(" Customer_Email       :  "+customerDetailEmail1);
-//                l.setText(" Customer_Phone     :  "+customerDetailPhone);
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+        databaseReference4.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String customerDetailName=dataSnapshot.child("name").getValue().toString();
+                String customerDetailEmail1=dataSnapshot.child("email").getValue().toString();
+                String customerDetailPhone=dataSnapshot.child("phone").getValue().toString();
+
+                j.setText(customerDetailName);
+                k.setText(customerDetailEmail1);
+                l.setText(customerDetailPhone);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 }

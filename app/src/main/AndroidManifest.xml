@@ -4,6 +4,8 @@
     package="com.example.bookingapp">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -20,6 +22,7 @@
         tools:replace="android:icon">
         <activity android:name=".NotificationActivity" />
         <activity android:name=".FinishActivity" >
+
         </activity>
         <activity android:name=".PaybleActivity"></activity>
         <activity android:name=".SearchBusActivity" >
@@ -27,20 +30,26 @@
         <activity android:name=".AdminActivity">
 
 
+
+
         </activity>
         <activity android:name=".AdminLoginActivity" />
-        <activity android:name=".BusActivity" />
-        <activity android:name=".BookingActivity" />
-        <activity android:name=".SeatActivity" />
-        <activity android:name=".AboutUsActivity" />
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".ViewBusActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".BusActivity" />
+        <activity android:name=".SeatActivity" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SplashActivity">
+
+
+
 
         </activity>
         <activity android:name=".DisplayLocationsActivity" />

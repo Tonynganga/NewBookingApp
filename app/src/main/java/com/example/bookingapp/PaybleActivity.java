@@ -26,7 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 
 import butterknife.BindView;
 import retrofit2.Call;
@@ -55,6 +57,8 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
     TextView totalCost;
     TextView totalSeat;
     String total, seats, distance, nameBus, dateBus, conditionBus;
+    private ArrayList<Integer> mSelectedSeats;
+    private String mBusId;
 
 
     @SuppressLint("CutPasteId")
@@ -79,6 +83,8 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
         nameBus=getIntent().getStringExtra("NAME_BUS");
         dateBus=getIntent().getStringExtra("DATE_BUS");
         conditionBus=getIntent().getStringExtra("CONDITION_BUS");
+        mSelectedSeats = getIntent().getIntegerArrayListExtra("SEATSET");
+        mBusId = getIntent().getStringExtra("BUS_ID");
 
         a=(TextView)findViewById(R.id.textView11);
         b=(TextView)findViewById(R.id.textView21);
@@ -165,6 +171,43 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
                 try {
                     if (response.isSuccessful()) {
                         Timber.d("post submitted to API. %s", response.body());
+                        Date date = new Date();
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                        final String strDate = formatter.format(date);
+
+                        PaymentDetails newPayment = new PaymentDetails(amount, strDate, seats);
+                        FirebaseUser user=firebaseAuth.getCurrentUser();
+                        databaseReferencePayment.child(user.getUid()).child("PaymentDetails").push().setValue(newPayment).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    DatabaseReference tempRef2= databaseReferencePayment.child("BusDetails").child(mBusId);
+                                    for(int seat :  mSelectedSeats) {
+                                        tempRef2.child("BookedSeats").push().setValue(seat);
+                                    }
+
+                                    Intent intent=new Intent(PaybleActivity.this,FinishActivity.class);
+                                    intent.putExtra("TOTALCOST",total);
+                                    intent.putExtra("TOTALSEAT",seats);
+                                    intent.putExtra("DISTANCE",distance);
+                                    intent.putExtra("NAME_BUS",nameBus);
+                                    intent.putExtra("DATE_BUS",dateBus);
+                                    intent.putExtra("CONDITION_BUS",conditionBus);
+                                    startActivity(intent);
+
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(PaybleActivity.this, "Something Went Wrong!Try Again again.", Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(PaybleActivity.this,PaybleActivity.class);
+                                startActivity(intent);
+
+                            }
+                        });
+
+
 
 
                     } else {
@@ -178,6 +221,10 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
 
+
+
+
+
             @Override
             public void onFailure(@NonNull Call<STKPush> call, @NonNull Throwable t) {
                 mProgressDialog.dismiss();
@@ -185,36 +232,6 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-        final String strDate = formatter.format(date);
-
-        PaymentDetails newPayment = new PaymentDetails(amount, strDate, seats);
-        FirebaseUser user=firebaseAuth.getCurrentUser();
-        databaseReferencePayment.child(user.getUid()).child("PaymentDetails").push().setValue(newPayment).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Intent intent=new Intent(PaybleActivity.this,FinishActivity.class);
-                    intent.putExtra("TOTALCOST",total);
-                    intent.putExtra("TOTALSEAT",seats);
-                    intent.putExtra("DISTANCE",distance);
-                    intent.putExtra("NAME_BUS",nameBus);
-                    intent.putExtra("DATE_BUS",dateBus);
-                    intent.putExtra("CONDITION_BUS",conditionBus);
-                    startActivity(intent);
-
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(PaybleActivity.this, "Something Went Wrong!Try Again again.", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(PaybleActivity.this,PaybleActivity.class);
-                startActivity(intent);
-
-            }
-        });
 
     }
 

@@ -38,6 +38,7 @@ public class BusAdapter extends RecyclerView.Adapter<com.example.bookingapp.BusA
         holder.textViewBusName.setText(bus.travelsName);
         holder.textViewBusNumber.setText("Bus Number : " + bus.busNumber);
         holder.textViewDate.setText("Journey Date : " + bus.date);
+        holder.textViewTime.setText("Journey Time : " + bus.time);
         holder.textViewFrom.setText("From : " + bus.from);
         holder.textViewTo.setText("To : " + bus.to);
         holder.textViewCondition.setText("Bus Condition: " + bus.busCondition);
@@ -53,7 +54,7 @@ public class BusAdapter extends RecyclerView.Adapter<com.example.bookingapp.BusA
 
     class ArtistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView textViewBusName, textViewBusNumber, textViewDate, textViewFrom,textViewTo,textViewCondition;
+        TextView textViewBusName, textViewBusNumber, textViewDate, textViewTime, textViewFrom,textViewTo,textViewCondition;
 
         public ArtistViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +62,7 @@ public class BusAdapter extends RecyclerView.Adapter<com.example.bookingapp.BusA
             textViewBusName = itemView.findViewById(R.id.text_view_busName);
             textViewBusNumber = itemView.findViewById(R.id.text_view_busNumber);
             textViewDate = itemView.findViewById(R.id.text_view_date);
+            textViewTime = itemView.findViewById(R.id.text_view_time);
             textViewFrom = itemView.findViewById(R.id.text_view_from);
             textViewTo = itemView.findViewById(R.id.text_view_to);
             textViewCondition = itemView.findViewById(R.id.text_view_condition);

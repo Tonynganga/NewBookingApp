@@ -83,11 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
         mUserRef = FirebaseDatabase.getInstance().getReference().child("UserProfiles");
         storageRef = FirebaseStorage.getInstance().getReference().child("ProfileImages");
 
-        profileimageview.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_CODE);
-        });
+
 
         btnprofiledit.setOnClickListener(new View.OnClickListener() {
             @Override

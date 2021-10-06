@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LogInActivity extends AppCompatActivity implements FirebaseAuth.AuthStateListener {
 
     private TextInputLayout inputemailLogin, inputpasswordLogin;
-    private Button btnLogin, forgotPassword, gotoRegister;
+    private Button btnLogin, forgotPassword, gotoRegister, gotoAdmin;
     FirebaseAuth mAuth;
     boolean check=false;
     ProgressDialog mLoadingBar;
@@ -36,9 +36,18 @@ public class LogInActivity extends AppCompatActivity implements FirebaseAuth.Aut
         btnLogin = findViewById(R.id.btnLogin);
         gotoRegister = findViewById(R.id.gotoRegister);
         forgotPassword = findViewById(R.id.forgotPassword);
+        gotoAdmin = findViewById(R.id.gotoAdmin);
 
         mAuth = FirebaseAuth.getInstance();
         mLoadingBar = new ProgressDialog(this);
+
+        gotoAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent adminintent = new Intent(getApplicationContext(), AdminLoginActivity.class);
+                startActivity(adminintent);
+            }
+        });
 
         gotoRegister.setOnClickListener(new View.OnClickListener() {
             @Override
