@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.bookingapp.Models.Bus;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailActivity extends AppCompatActivity {
 
      TextView a,b,c,d,e,f,g,h,i,j,k,l,m,n;
@@ -29,54 +34,94 @@ public class DetailActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     private Button cancelBooking;
+    private List<Bus> busList;
+    private BusAdapter adapter;
+    String BusId;
+
+    ArrayList<Integer> mSelectedSeats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        BusId = getIntent().getStringExtra("BUS_ID");
+
+//        mSelectedSeats = getIntent().getIntegerArrayListExtra("SEATSET");
+
+
 //        toolbar = findViewById(R.id.app_bar);
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setTitle("History");
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        cancelBooking=(Button)findViewById(R.id.cancelBooking);
+        cancelBooking= findViewById(R.id.cancelBooking);
 
-        a=(TextView)findViewById(R.id.busDetailName1);
-        b=(TextView)findViewById(R.id.busDetailDate1);
+        a= findViewById(R.id.busDetailName1);
+        b= findViewById(R.id.busDetailDate1);
         m = findViewById(R.id.busDetailTime1);
-        c=(TextView)findViewById(R.id.busDetailFrom1);
-        d=(TextView)findViewById(R.id.busDetailTo1);
-        e=(TextView)findViewById(R.id.busDetailCondition1);
+        c= findViewById(R.id.busDetailFrom1);
+        d= findViewById(R.id.busDetailTo1);
+        e= findViewById(R.id.busDetailCondition1);
 
-        f=(TextView)findViewById(R.id.bookingDetailFrom1);
-        g=(TextView)findViewById(R.id.bookingDetailTo1);
+        f= findViewById(R.id.bookingDetailFrom1);
+        g= findViewById(R.id.bookingDetailTo1);
 
-        h=(TextView)findViewById(R.id.ticketDetailNumber1);
-        n=(TextView)findViewById(R.id.ticketDetailSeats1);
-        i=(TextView)findViewById(R.id.ticketDetailPrice1);
+        h= findViewById(R.id.ticketDetailNumber1);
+//        n.setText("Seats" + mSelectedSeats.toString());
+        i= findViewById(R.id.ticketDetailPrice1);
 
-        j=(TextView)findViewById(R.id.customerDetailName1);
-        k=(TextView)findViewById(R.id.customerDetailEmail1);
-        l=(TextView)findViewById(R.id.customerDetailPhone1);
+        j= findViewById(R.id.customerDetailName1);
+        k= findViewById(R.id.customerDetailEmail1);
+        l= findViewById(R.id.customerDetailPhone1);
         firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference1= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("BusBookingDetails");
         databaseReference2= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("BookingDetails");
-        databaseReference3= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("SeatDetails");
+//        databaseReference3= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("SeatDetails").child(BusId);
         databaseReference5= FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("SeatDetails").child("bookedSeats");
         databaseReference4= FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
 
-        databaseReference5.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                for (DataSnapshot snapshot: task.getResult().getChildren()){
-                    String seats = snapshot.getChildren().toString();
-                    n.setText(seats);
-                }
-            }
-        });
+//        DatabaseReference  mBookedSeatsRef = FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("SeatDetails").child(BusId);
+//        mBookedSeatsRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if(snapshot.exists()){
+//                    for (DataSnapshot snap : snapshot.getChildren()) {
+//                        String key = snap.getKey();
+//                        mBookedSeatsRef.child(key).child("bookedSeats").addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                Integer no = snapshot.getValue(Integer.class);
+//                                n.setText(no);
+//                                Toast.makeText(DetailActivity.this, ""+no, Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                            }
+//                        });
+//
+//                    }
+//                }
+//
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//        databaseReference5.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                for (DataSnapshot snapshot: task.getResult().getChildren()){
+//                    String seats = snapshot.getChildren().toString();
+//                    n.setText(seats);
+//                }
+//            }
+//        });
 
         databaseReference1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -114,28 +159,44 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
-        databaseReference3.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                for (DataSnapshot snapshot : task.getResult().getChildren()) {
-                    String ticketDetailNumber=snapshot.child("total_seats").getValue().toString();
-                    String ticketDetailPrice=snapshot.child("total_cost").getValue().toString();
-
-                    h.setText(" Number of Seats    :  "+ticketDetailNumber);
-                    i.setText(" Total Cost                :  "+ticketDetailPrice);
-                }
-
-            }
-        });
+//        databaseReference3.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                for (DataSnapshot snapshot : task.getResult().getChildren()) {
+//                    String ticketDetailNumber=snapshot.child("total_seats").getValue().toString();
+//                    String ticketDetailPrice=snapshot.child("total_cost").getValue().toString();
+//
+//                    h.setText(" Number of Seats    :  "+ticketDetailNumber);
+//                    i.setText(" Total Cost                :  "+ticketDetailPrice);
+//                }
+//
+//            }
+//        });
 
         cancelBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseUser user1 = firebaseAuth.getCurrentUser();
                 DatabaseReference databaseReferenceA= FirebaseDatabase.getInstance().getReference().child(user1.getUid());
-                databaseReferenceA.removeValue();
+                databaseReferenceA.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            DatabaseReference databaseReferenceB = FirebaseDatabase.getInstance().getReference().child("BusDetails").child(BusId).child("BookedSeats").child(user1.getUid());
+                            databaseReferenceB.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(DetailActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else {
+                            Toast.makeText(DetailActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
                 startActivity(new Intent(getApplicationContext(),DisplayLocationsActivity.class));
+                finish();
 
             }
         });

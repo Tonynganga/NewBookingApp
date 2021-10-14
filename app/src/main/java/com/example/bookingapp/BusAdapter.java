@@ -37,8 +37,8 @@ public class BusAdapter extends RecyclerView.Adapter<com.example.bookingapp.BusA
         Bus bus = busList.get(position);
         holder.textViewBusName.setText(bus.travelsName);
         holder.textViewBusNumber.setText("Bus Number : " + bus.busNumber);
-        holder.textViewDate.setText("Journey Date : " + bus.date);
-        holder.textViewTime.setText("Journey Time : " + bus.time);
+        holder.textViewDate.setText("Journey   Time : " + bus.date);
+        holder.textViewTime.setText("Journey Date : " + bus.time);
         holder.textViewFrom.setText("From : " + bus.from);
         holder.textViewTo.setText("To : " + bus.to);
         holder.textViewCondition.setText("Bus Condition: " + bus.busCondition);

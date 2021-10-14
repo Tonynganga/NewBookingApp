@@ -71,10 +71,10 @@ public class SeatActivity extends AppCompatActivity {
 //                .boxed().collect(Collectors.toList());
 
 
-        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
-        totalBookedSeats = (TextView) findViewById(R.id.total_seats);
-        totalPrice = (TextView) findViewById(R.id.total_cost);
-        buttonBook = (Button) findViewById(R.id.btnBook);
+        mainGrid = findViewById(R.id.mainGrid);
+        totalBookedSeats = findViewById(R.id.total_seats);
+        totalPrice = findViewById(R.id.total_cost);
+        buttonBook = findViewById(R.id.btnBook);
 
 
         firebaseAuth= FirebaseAuth.getInstance();
@@ -91,7 +91,7 @@ public class SeatActivity extends AppCompatActivity {
 
             }
         });
-        DatabaseReference  mBookedSeatsRef = FirebaseDatabase.getInstance().getReference().child("BusDetails").child(mBusId).child("BookedSeats");
+        DatabaseReference  mBookedSeatsRef = FirebaseDatabase.getInstance().getReference().child("BusDetails").child(mBusId).child("BookedSeats").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         mBookedSeatsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,6 +99,7 @@ public class SeatActivity extends AppCompatActivity {
                     for (DataSnapshot snap : snapshot.getChildren()) {
                         Integer no = snap.getValue(Integer.class);
                         mCurrentlyBookedSeats.add(no);
+                        Toast.makeText(SeatActivity.this, "Booked Seats"+mCurrentlyBookedSeats, Toast.LENGTH_SHORT).show();
                     }
                 }
                 setToggleEvent(mainGrid);
@@ -127,7 +128,7 @@ public class SeatActivity extends AppCompatActivity {
                 SeatDetails seatDetails =new SeatDetails(totalPriceI,totalBookedSeatsI,new ArrayList<>(selectedSeats));
 
                 FirebaseUser user=firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).child("SeatDetails").push().setValue(seatDetails);
+//                databaseReference.child(user.getUid()).child("SeatDetails").push().setValue(seatDetails);
 //                DatabaseReference tempRef= databaseReference.child(user.getUid()).child("SeatDetails");
 //                for(int seat : new ArrayList<>(selectedSeats)) {
 //                    tempRef.child("BookedSeats").push().setValue(seat);
@@ -145,6 +146,7 @@ public class SeatActivity extends AppCompatActivity {
                 intent.putExtra("SEATSET", new ArrayList<>(selectedSeats));
                 intent.putExtra("DISTANCE", distance);
                 intent.putExtra("NAME_BUS",nameBus);
+                intent.putExtra("SEAT_DETAILS",seatDetails);
                 intent.putExtra("BUS_ID",mBusId);
                 intent.putExtra("DATE_BUS",dateBus);
                 intent.putExtra("CONDITION_BUS",conditionBus);

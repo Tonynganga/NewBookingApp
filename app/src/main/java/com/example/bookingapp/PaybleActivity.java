@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookingapp.Models.PaymentDetails;
+import com.example.bookingapp.Models.SeatDetails;
 import com.example.bookingapp.model.AccessToken;
 import com.example.bookingapp.model.STKPush;
 import com.example.bookingapp.services.DarajaApiClient;
@@ -59,6 +60,7 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
     String total, seats, distance, nameBus, dateBus, conditionBus;
     private ArrayList<Integer> mSelectedSeats;
     private String mBusId;
+    private SeatDetails mSeatDetails;
 
 
     @SuppressLint("CutPasteId")
@@ -84,19 +86,20 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
         dateBus=getIntent().getStringExtra("DATE_BUS");
         conditionBus=getIntent().getStringExtra("CONDITION_BUS");
         mSelectedSeats = getIntent().getIntegerArrayListExtra("SEATSET");
+        mSeatDetails = (SeatDetails) getIntent().getSerializableExtra("SEAT_DETAILS");
         mBusId = getIntent().getStringExtra("BUS_ID");
 
-        a=(TextView)findViewById(R.id.textView11);
-        b=(TextView)findViewById(R.id.textView21);
-        c=(TextView)findViewById(R.id.textView31);
+        a= findViewById(R.id.textView11);
+        b= findViewById(R.id.textView21);
+        c= findViewById(R.id.textView31);
 
         a.setText(nameBus);
         b.setText(dateBus);
         c.setText(conditionBus);
         mPay = findViewById(R.id.btnPay);
 
-        totalCost=(TextView)findViewById(R.id.etAmount);
-        totalSeat=(TextView)findViewById(R.id.totalSeatsFinal);
+        totalCost= findViewById(R.id.etAmount);
+        totalSeat= findViewById(R.id.totalSeatsFinal);
         totalCost.setText(total);
         totalSeat.setText("Number Of Seats : "+seats);
 
@@ -181,9 +184,10 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
+                                    databaseReferencePayment.child(user.getUid()).child("SeatDetails").child(mBusId).push().setValue(mSeatDetails);
                                     DatabaseReference tempRef2= databaseReferencePayment.child("BusDetails").child(mBusId);
                                     for(int seat :  mSelectedSeats) {
-                                        tempRef2.child("BookedSeats").push().setValue(seat);
+                                        tempRef2.child("BookedSeats").child(user.getUid()).push().setValue(seat);
                                     }
 
                                     Intent intent=new Intent(PaybleActivity.this,FinishActivity.class);
@@ -193,6 +197,8 @@ public class PaybleActivity extends AppCompatActivity implements View.OnClickLis
                                     intent.putExtra("NAME_BUS",nameBus);
                                     intent.putExtra("DATE_BUS",dateBus);
                                     intent.putExtra("CONDITION_BUS",conditionBus);
+                                    intent.putExtra("SEATSET", new ArrayList<>(mSelectedSeats));
+                                    intent.putExtra("BUS_ID", mBusId);
                                     startActivity(intent);
 
                                 }

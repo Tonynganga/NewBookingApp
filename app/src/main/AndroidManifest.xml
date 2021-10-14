@@ -35,11 +35,7 @@
         </activity>
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".ViewBusActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".BusActivity" />
         <activity android:name=".SeatActivity" />
@@ -47,6 +43,12 @@
         <activity android:name=".DetailActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
 
 

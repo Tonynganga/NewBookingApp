@@ -137,49 +137,7 @@
                     android:text="No Booking Data......"
                     android:textSize="20dp" />
 
-                <TextView
-                    android:id="@+id/ticketDetail1"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/colorWhite"
-                    android:gravity="center"
-                    android:text="Ticket Detail"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/ticketDetailNumber1"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/white"
-                    android:text="No Booking Data......"
-                    android:textSize="20dp" />
-                <TextView
-                    android:id="@+id/ticketDetailSeats1"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/white"
-                    android:text="No Booking Data......"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:id="@+id/ticketDetailPrice1"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/white"
-                    android:text="No Booking Data......"
-                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/customerDetail1"

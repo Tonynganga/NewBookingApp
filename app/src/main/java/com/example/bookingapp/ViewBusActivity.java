@@ -65,7 +65,7 @@ public class ViewBusActivity extends AppCompatActivity {
 //        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items3);
 //        spinner3.setAdapter(adapter3);
 
-        listViewBuses = (ListView) findViewById(R.id.listViewBusDetails);
+        listViewBuses = findViewById(R.id.listViewBusDetails);
         databaseBus = FirebaseDatabase.getInstance().getReference();
 //         = FirebaseDatabase.getInstance().getReference("BusDetails");
         FirebaseDatabase.getInstance().getReference("BusDetails")
@@ -124,16 +124,16 @@ public class ViewBusActivity extends AppCompatActivity {
 
         dialogBuilder.setView(dialogView);
 
-        final EditText editTravelsName  =(EditText)dialogView.findViewById(R.id.editTexttravelsName);
-        final EditText editBusNumber =(EditText)dialogView.findViewById(R.id.editTextbusNumber);
-        final EditText editDate       =(EditText)dialogView.findViewById(R.id.editTextjourneyDate);
+        final EditText editTravelsName  = dialogView.findViewById(R.id.editTexttravelsName);
+        final EditText editBusNumber = dialogView.findViewById(R.id.editTextbusNumber);
+        final EditText editDate       = dialogView.findViewById(R.id.editTextjourneyDate);
 
-        final EditText editFromBus=(EditText) findViewById(R.id.editTextbusFrom);
-        final EditText editToBus=(EditText) findViewById(R.id.editTextbusTo);
-        final EditText editConditionBus=(EditText) findViewById(R.id.editTextbusCondition);
+        final EditText editFromBus= findViewById(R.id.editTextbusFrom);
+        final EditText editToBus= findViewById(R.id.editTextbusTo);
+        final EditText editConditionBus= findViewById(R.id.editTextbusCondition);
 
-        final Button buttonUpdate   =(Button)dialogView.findViewById(R.id.buttonUpdate);
-        final Button buttonDelete   =(Button)dialogView.findViewById(R.id.buttonDelete);
+        final Button buttonUpdate   = dialogView.findViewById(R.id.buttonUpdate);
+        final Button buttonDelete   = dialogView.findViewById(R.id.buttonDelete);
 
 //        editTravelsName.setText(travelsName);
 //        editBusNumber.setText(busNumber);
@@ -185,7 +185,7 @@ public class ViewBusActivity extends AppCompatActivity {
     private boolean updateBusDetail(String busId, String travelsNameI, String busNumberI, String date, String from, String to, String busCondition){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("BusDetails").child(busId);
 
-        Bus bus = new Bus(busId, travelsNameI, busNumberI, date, from, to, busCondition);
+        Bus2 bus = new Bus2(busId, travelsNameI, busNumberI, date, from, to, busCondition);
         databaseReference.setValue(bus);
 
         Toast.makeText(this, "Bus Detail Updated Successfully ", Toast.LENGTH_LONG).show();

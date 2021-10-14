@@ -21,7 +21,7 @@ public class DarajaApiClient {
     private boolean isDebug;
     private boolean isGetAccessToken;
     private String mAuthToken;
-    private HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+    private final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
     public DarajaApiClient setIsDebug(boolean isDebug) {
         this.isDebug = isDebug;

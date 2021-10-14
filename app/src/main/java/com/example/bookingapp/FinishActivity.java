@@ -53,6 +53,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class FinishActivity extends AppCompatActivity {
 
@@ -64,6 +65,8 @@ public class FinishActivity extends AppCompatActivity {
     Toolbar toolbar;
     String total, seats, distance, nameBus, dateBus, conditionBus;
     String name, phone;
+    private  ArrayList<Integer> mSelectedSeats;
+    private String mBusId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +77,14 @@ public class FinishActivity extends AppCompatActivity {
 //        getSupportActionBar().setTitle("Booking  Finished");
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        a=(TextView)findViewById(R.id.textView11);
-        b=(TextView)findViewById(R.id.textView21);
-        c=(TextView)findViewById(R.id.textView31);
-        buttonHome=(Button)findViewById(R.id.btnHome);
+        a= findViewById(R.id.textView11);
+        b= findViewById(R.id.textView21);
+        c= findViewById(R.id.textView31);
+        buttonHome= findViewById(R.id.btnHome);
         buttonReceipt = findViewById(R.id.btnPrintReceipt);
+
+
+        mBusId = getIntent().getStringExtra("BUS_ID");
 
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -129,26 +135,29 @@ public class FinishActivity extends AppCompatActivity {
             }
         });
 
+
         buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message="Your Ticket Booking Success";
-                NotificationCompat.Builder builder=new NotificationCompat.Builder(FinishActivity.this)
-                        .setSmallIcon(R.drawable.detail)
-                        .setContentTitle("New Notification")
-                        .setContentText(message)
-                        .setAutoCancel(true);
-                Intent intent=new Intent(FinishActivity.this,NotificationActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("message",message);
+//                String BusId = getIntent().getStringExtra("BUS_ID");
+//                String message="Your Ticket Booking Success";
+//                NotificationCompat.Builder builder=new NotificationCompat.Builder(FinishActivity.this)
+//                        .setSmallIcon(R.drawable.detail)
+//                        .setContentTitle("New Notification")
+//                        .setContentText(message)
+//                        .setAutoCancel(true);
+                Intent intent=new Intent(FinishActivity.this,DisplayLocationsActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                intent.putExtra("message",message);
+                intent.putExtra("BUS_ID", mBusId);
+//                intent.putExtra("SEATSET", new ArrayList<>(mSelectedSeats));
+                startActivity(intent);
 
-                PendingIntent pendingIntent=PendingIntent.getActivity(FinishActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-                builder.setContentIntent(pendingIntent);
-
-                NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-
-                notificationManager.notify(0,builder.build());
-                startActivity(new Intent(getApplicationContext(), DisplayLocationsActivity.class));
+//                PendingIntent pendingIntent=PendingIntent.getActivity(FinishActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+//                builder.setContentIntent(pendingIntent);
+//                NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+//                notificationManager.notify(0,builder.build());
+//                startActivity(new Intent(getApplicationContext(), DisplayLocationsActivity.class));
             }
         });
     }
@@ -173,6 +182,7 @@ public class FinishActivity extends AppCompatActivity {
         nameBus=getIntent().getStringExtra("NAME_BUS");
         dateBus=getIntent().getStringExtra("DATE_BUS");
         conditionBus=getIntent().getStringExtra("CONDITION_BUS");
+        mSelectedSeats = getIntent().getIntegerArrayListExtra("SEATSET");
 
         if (new File(path).exists())
             new File(path).delete();
@@ -257,6 +267,10 @@ public class FinishActivity extends AppCompatActivity {
             addLineSeperator(document);
 
             addNewItemWithLeftAndRight(document, "Number of Seats", ""+seats, subtitleFont, orderNumberValueFont);
+
+            addLineSeperator(document);
+
+            addNewItemWithLeftAndRight(document, "Seats Number(s)", ""+mSelectedSeats.toString(), subtitleFont, orderNumberValueFont);
 
             addLineSeperator(document);
 

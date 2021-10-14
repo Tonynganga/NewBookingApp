@@ -141,8 +141,8 @@ public class BusActivity extends AppCompatActivity implements ItemClickListener{
         String busId=bus.getBusId();
         String travelsName=bus.getTravelsName();
         String busNumber=bus.getBusNumber();
-        String date=bus.getDate();
-        String time = bus.getTime();
+        String date=bus.getTime();
+        String time = bus.getDate();
         String from=bus.getFrom();
         String to=bus.getTo();
         String busCondition=bus.getBusCondition();

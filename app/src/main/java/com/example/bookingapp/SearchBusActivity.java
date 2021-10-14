@@ -61,11 +61,11 @@ public class SearchBusActivity extends AppCompatActivity {
 //        Toast.makeText(this, ""+distance, Toast.LENGTH_SHORT).show();
 
 
-        spinner1 = (Spinner) findViewById(R.id.spinner1);
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinner1 = findViewById(R.id.spinner1);
+        spinner2 = findViewById(R.id.spinner2);
 
-        tvDate = (TextView) findViewById(R.id.tvDate);
-        angry_btn = (Button) findViewById(R.id.angry_btn);
+        tvDate = findViewById(R.id.tvDate);
+        angry_btn = findViewById(R.id.angry_btn);
 
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -95,7 +95,7 @@ public class SearchBusActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items2);
         dropdown2.setAdapter(adapter2);
 
-        mDisplayDate = (TextView) findViewById(R.id.tvDate);
+        mDisplayDate = findViewById(R.id.tvDate);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +109,7 @@ public class SearchBusActivity extends AppCompatActivity {
                         , mDatesetListener
                         , year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+//                dialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 dialog.show();
             }
         });

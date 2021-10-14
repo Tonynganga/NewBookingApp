@@ -18,8 +18,8 @@ import java.util.List;
 
 public class BusList extends ArrayAdapter<Bus2> {
 
-    private Activity context;
-    private List<Bus2> busList;
+    private final Activity context;
+    private final List<Bus2> busList;
 
     public BusList(Activity context, List<Bus2> busList) {
         super(context, R.layout.list_bus, busList);
@@ -35,19 +35,19 @@ public class BusList extends ArrayAdapter<Bus2> {
         View listViewItem = inflater.inflate(R.layout.list_bus, null, true);
 
 
-        TextView textViewTravelsName = (TextView) listViewItem.findViewById(R.id.text_view_busName);
-        TextView textViewBusNumber = (TextView) listViewItem.findViewById(R.id.text_view_busNumber);
-        TextView textViewDate = (TextView) listViewItem.findViewById(R.id.text_view_date);
-        TextView textViewFrom = (TextView) listViewItem.findViewById(R.id.text_view_from);
-        TextView textViewTo = (TextView) listViewItem.findViewById(R.id.text_view_to);
-        TextView textViewCondition = (TextView) listViewItem.findViewById(R.id.text_view_condition);
+        TextView textViewTravelsName = listViewItem.findViewById(R.id.text_view_busName);
+        TextView textViewBusNumber = listViewItem.findViewById(R.id.text_view_busNumber);
+        TextView textViewDate = listViewItem.findViewById(R.id.text_view_date);
+        TextView textViewFrom = listViewItem.findViewById(R.id.text_view_from);
+        TextView textViewTo = listViewItem.findViewById(R.id.text_view_to);
+        TextView textViewCondition = listViewItem.findViewById(R.id.text_view_condition);
 
 
         Bus2 bus = busList.get(position);
 
         textViewTravelsName.setText(bus.getTravelsName());
         textViewBusNumber.setText("Bus Number       : "+bus.getBusNumber());
-        textViewDate.setText("Journey Date      : "+bus.getDate());
+        textViewDate.setText("Journey Time      : "+bus.getDate());
         textViewFrom.setText("Bus From            : "+bus.getFrom());
         textViewTo.setText("Bus To                : "+bus.getTo());
         textViewCondition.setText("Bus Condition    : "+bus.getBusCondition());

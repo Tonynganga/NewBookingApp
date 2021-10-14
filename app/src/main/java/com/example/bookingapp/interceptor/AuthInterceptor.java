@@ -8,7 +8,7 @@ import okhttp3.Response;
 
 public class AuthInterceptor implements Interceptor {
 
-    private String mAuthToken;
+    private final String mAuthToken;
 
     public AuthInterceptor(String authToken) {
         mAuthToken = authToken;

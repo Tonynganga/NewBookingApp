@@ -1,8 +1,9 @@
 package com.example.bookingapp.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SeatDetails {
+public class SeatDetails implements Serializable {
     public String total_cost;
     public String total_seats;
     public ArrayList<Integer> bookedSeats;

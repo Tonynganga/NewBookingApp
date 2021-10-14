@@ -57,9 +57,9 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     DatabaseReference priceRef, priceRetrieve;
 
     private static final int REQUEST_CODE = 100;
-    MaterialCardView addBus, addAdmin, logout, addprice;
-    AlertDialog.Builder dialogBuilder, pricedialogBuilder;
-    AlertDialog dialog, admindialog, pricedialog;
+    MaterialCardView addBus, addAdmin, logout, addprice, deleteBus;
+    AlertDialog.Builder dialogBuilder, pricedialogBuilder, deleteBusDialog;
+    AlertDialog dialog, admindialog, pricedialog, deleteDialog;
 
     private Uri imageUri;
     
@@ -91,11 +91,20 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         addBus = findViewById(R.id.addMember);
         addAdmin = findViewById(R.id.addAdministrator);
         addprice = findViewById(R.id.addprice);
+        deleteBus = findViewById(R.id.deleteBus);
         mBusRef = FirebaseDatabase.getInstance().getReference();
         priceRef = FirebaseDatabase.getInstance().getReference().child("Prices");
         priceRetrieve = FirebaseDatabase.getInstance().getReference().child("Prices");
 
         logout = findViewById(R.id.logout);
+
+        deleteBus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2=new Intent(getApplicationContext(),ViewBusActivity.class);
+                startActivity(intent2);
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

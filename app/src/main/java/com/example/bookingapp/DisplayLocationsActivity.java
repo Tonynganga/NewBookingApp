@@ -104,6 +104,9 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
 
     String profileImageUrlV, usernameV;
     DatabaseReference mUserRef;
+    String BusId;
+
+    private ArrayList<Integer> mSelectedSeats;
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -136,6 +139,9 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
         btncontinue = findViewById(R.id.btncontinue);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+
+        BusId = getIntent().getStringExtra("BUS_ID");
+        mSelectedSeats = getIntent().getIntegerArrayListExtra("SEATSET");
 
 
         Toolbar mToolbar = findViewById(R.id.app_bar);
@@ -223,15 +229,18 @@ public class DisplayLocationsActivity extends AppCompatActivity implements OnMap
                 break;
             case R.id.cancel_ticket:
             case R.id.history:
-                startActivity(new Intent(DisplayLocationsActivity.this, DetailActivity.class));
+               Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                intent.putExtra("BUS_ID", BusId);
+//                intent.putExtra("SEATSET", new ArrayList<>(mSelectedSeats));
+                startActivity(intent);
                 break;
             case R.id.about:
                 startActivity(new Intent(DisplayLocationsActivity.this, AboutUsActivity.class));
                 break;
             case R.id.logout:
                 mAuth.signOut();
-                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
-                startActivity(intent);
+                Intent newintent = new Intent(getApplicationContext(), LogInActivity.class);
+                startActivity(newintent);
                 finish();
                 break;
 

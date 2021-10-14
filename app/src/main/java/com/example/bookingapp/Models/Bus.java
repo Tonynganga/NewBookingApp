@@ -10,7 +10,7 @@ public class Bus {
         public String to;
         public String busCondition;
 
-        public Bus(String busId, String travelsNameI, String busNumberI, String date, String from, String to, String busCondition) {
+        public Bus() {
         }
 
 
